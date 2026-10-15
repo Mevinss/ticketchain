@@ -42,9 +42,7 @@
       "excludeTools": [],
       "permissions": {
         "requirePermissions": true,
-        "defaultPermissions": [
-          "*"
-        ]
+        "defaultPermissions": ["*"]
       },
       "rateLimit": {
         "enabled": true,
@@ -92,19 +90,10 @@
           "h",
           "hpp"
         ],
-        "blockedPatterns": [
-          "**/node_modules/**",
-          "**/.git/**"
-        ]
+        "blockedPatterns": ["**/node_modules/**", "**/.git/**"]
       },
       "networkOperations": {
-        "allowedNetworks": [
-          "sepolia",
-          "goerli",
-          "localhost",
-          "vm",
-          "mainnet"
-        ],
+        "allowedNetworks": ["sepolia", "goerli", "localhost", "vm", "mainnet"],
         "warnOnMainnet": true,
         "maxGasLimit": 15000000
       }
