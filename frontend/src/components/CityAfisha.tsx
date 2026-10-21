@@ -1,3 +1,10 @@
+import { Link } from "react-router-dom";
+import { formatEther } from "ethers";
+import { configured, getListings } from "../lib/chain";
+import { useLoad } from "../lib/useLoad";
+import { sessionsFor } from "../lib/sessions";
+import { dateLabel, eventStatus } from "../lib/domain";
+import { Loading, Notice, Status } from "./Common";
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowUpRight,
@@ -44,7 +51,13 @@ function Cover({ item }: { item: AfishaItem }) {
   );
 }
 export default function CityAfisha() {
-  const { t, lang } = useApp();
+  const { t, lang, version } = useApp();
+  const chain = useLoad(
+    "afisha-sessions:" + version,
+    getListings,
+    configured,
+    15000,
+  );
   const [city, setCity] = useState(""),
     [kind, setKind] = useState(""),
     [query, setQuery] = useState("");
@@ -189,7 +202,10 @@ export default function CityAfisha() {
                   {item.cities.join(" / ")}
                 </p>
                 <span className="afisha-more">
-                  {t("Подробнее", "Толығырақ")}
+                  {t(
+                    "Сеансы и блокчейн-билеты",
+                    "Сеанстар мен блокчейн билеттері",
+                  )}
                   <ArrowUpRight size={19} />
                 </span>
               </div>
@@ -225,8 +241,8 @@ export default function CityAfisha() {
       )}
       <p className="afisha-disclaimer">
         {t(
-          "Справочная афиша по данным Ticketon. Расписание может измениться. Реальные билеты доступны у организатора; учебные билеты Sepolia находятся ниже.",
-          "Ticketon деректеріне негізделген анықтамалық афиша. Кесте өзгеруі мүмкін. Нақты билеттер ұйымдастырушыда; Sepolia оқу билеттері төменде.",
+          "Учебные блокчейн-билеты Sepolia по мотивам афиши. Выберите сеанс и место, оплатите тестовым ETH и получите QR. Это не билеты на реальные показы.",
+          "Афиша негізіндегі Sepolia оқу блокчейн билеттері. Сеанс пен орынды таңдап, тестілік ETH төлеп, QR алыңыз. Бұл нақты көрсетілімге арналған билет емес.",
         )}
       </p>
       <dialog
@@ -262,23 +278,74 @@ export default function CityAfisha() {
                   <br />
                   {labelDate(selected)}
                 </p>
-                <a
-                  className="button"
-                  href={selected.source}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <h3>{t("Блокчейн-сеансы", "Блокчейн сеанстары")}</h3>
+                <p>
+                  {t(
+                    "Учебный билет Sepolia · не даёт прохода на реальный показ",
+                    "Sepolia оқу билеті · нақты көрсетілімге кіруге құқық бермейді",
+                  )}
+                </p>
+                {chain.loading ? (
+                  <Loading />
+                ) : chain.error ? (
+                  <Notice code={chain.error} />
+                ) : sessionsFor(selected.id, chain.data || [], city).length ? (
+                  <div className="session-list">
+                    {sessionsFor(selected.id, chain.data || [], city).map(
+                      (e) => (
+                        <Link
+                          key={String(e.id)}
+                          className="session-row"
+                          to={`/events/${e.id}`}
+                          onClick={() => setSelected(null)}
+                        >
+                          <span>
+                            <strong>{e.metadata.city}</strong>
+                            <br />
+                            {dateLabel(e.startsAt, lang)} · UTC+5
+                            <br />
+                            {formatEther(e.ticketPrice)} test ETH ·{" "}
+                            {String(e.capacity - e.ticketsSold)}{" "}
+                            {t("мест", "орын")}
+                          </span>
+                          <span>
+                            <Status status={eventStatus(e)} />
+                            {t("Выбрать место", "Орын таңдау")}{" "}
+                            <ArrowUpRight size={18} />
+                          </span>
+                        </Link>
+                      ),
+                    )}
+                  </div>
+                ) : (
+                  <p>
+                    {t(
+                      "Сеанс ещё не опубликован в контракте. Организатор должен подтвердить его создание.",
+                      "Сеанс контрактта әлі жарияланбаған. Ұйымдастырушы оның жасалуын растауы керек.",
+                    )}
+                  </p>
+                )}
+                <Link
+                  className="button secondary"
+                  to="/admin"
+                  onClick={() => setSelected(null)}
                 >
                   {t(
-                    "Сеансы и билеты на Ticketon",
-                    "Ticketon: сеанстар мен билеттер",
+                    "Организатор: создать сеансы",
+                    "Ұйымдастырушы: сеанс жасау",
                   )}
-                  <ArrowUpRight size={18} />
-                </a>
+                </Link>
                 <p className="afisha-disclaimer">
-                  {t(
-                    "Откроется сайт продавца. Этот раздел не выпускает блокчейн-билеты.",
-                    "Сатушының сайты ашылады. Бұл бөлім блокчейн билеттерін шығармайды.",
-                  )}
+                  <a
+                    href={selected.source}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t(
+                      "Источник описания и официальная афиша",
+                      "Сипаттама көзі және ресми афиша",
+                    )}
+                  </a>
                 </p>
               </div>
             </div>

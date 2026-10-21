@@ -1,0 +1,9 @@
+{
+  "description": "Учебный блокчейн-сеанс Sepolia. Не даёт прохода на реальное мероприятие. Спектакль театра «ТОХОТ» в программе IV Almaty Puppet Festival. Точное время смотрите у организатора.",
+  "descriptionKk": "Sepolia оқу блокчейн сеансы. Нақты іс-шараға кіруге құқық бермейді. IV Almaty Puppet Festival бағдарламасындағы «ТОХОТ» театрының қойылымы. Нақты уақытын ұйымдастырушыдан қараңыз.",
+  "city": "Алматы",
+  "venue": "Учебный зал TicketChain",
+  "venueKk": "TicketChain оқу залы",
+  "category": "Театр",
+  "posterUrl": "/posters/theatre.svg"
+}

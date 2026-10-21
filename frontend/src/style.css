@@ -1,5 +1,5 @@
 :root {
-  font-family: Manrope, Arial, sans-serif;
+  font-family: "Noto Sans", Arial, sans-serif;
   color: #242721;
   background: #f6f5f0;
   font-synthesis: none;
@@ -1861,3 +1861,8 @@ footer a:last-child {
 }
 .type-cover > small {color:#fff;opacity:1;}
 @media(max-width:600px){.hero-art{height:235px;}.hero-art .big-ticket{width:230px;transform:rotate(8deg);margin:20px auto;}.hero-art .big-ticket strong{font-size:38px;line-height:1.05;}}
+
+.session-list { display: grid; gap: 16px; margin-top: 24px; }
+.session-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.session-row .button { flex-shrink: 0; }
+@media(max-width:600px) { .session-row { align-items: stretch; flex-direction: column; } }

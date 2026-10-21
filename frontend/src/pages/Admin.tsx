@@ -1,3 +1,4 @@
+import { AfishaPublisher } from "../components/AfishaPublisher";
 import { useState } from "react";
 import { formatEther, isAddress, parseEther, ZeroAddress } from "ethers";
 import { useApp } from "../context/AppContext";
@@ -230,6 +231,7 @@ export default function Admin() {
         </div>
         <Refresh />
       </div>
+      {isAdmin && <AfishaPublisher events={s.data.events} />}
       {isAdmin && (
         <section className="create-event">
           <h2>{t("Новое событие", "Жаңа іс-шара")}</h2>
