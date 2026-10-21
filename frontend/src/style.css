@@ -1491,3 +1491,373 @@ footer a:last-child {
     print-color-adjust: exact;
   }
 }
+/* City listings: warm editorial posters and deliberate, restrained motion. */
+.language-switch,
+.segmented {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #e9eddf;
+  padding: 4px;
+  border-radius: 10px;
+}
+.language-switch button,
+.segmented button {
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  min-height: 40px;
+  padding: 8px 12px;
+  border-radius: 7px;
+  font-weight: 700;
+}
+.language-switch button[aria-pressed="true"],
+.segmented button[aria-pressed="true"] {
+  background: var(--ink);
+  color: white;
+}
+.city-afisha {
+  padding: 20px 0 64px;
+}
+.city-afisha h2 {
+  font-size: clamp(30px, 4vw, 48px);
+  margin-bottom: 10px;
+}
+.source-date {
+  font-size: 12px;
+  color: var(--muted);
+}
+.afisha-toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  margin: 28px 0 18px;
+}
+.afisha-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0 16px;
+  max-width: 400px;
+  flex: 1;
+}
+.afisha-search input {
+  border: 0;
+  background: transparent;
+  width: 100%;
+  min-width: 0;
+  padding: 14px 0;
+  outline-offset: 1px;
+}
+.afisha-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  gap: 12px;
+  padding-bottom: 12px;
+}
+.afisha-tabs > div {
+  display: flex;
+  gap: 8px;
+}
+.afisha-tabs > div button {
+  border: 0;
+  background: transparent;
+  min-height: 44px;
+  font-weight: 700;
+  color: var(--muted);
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+.afisha-tabs > div button.selected {
+  background: var(--accent);
+  color: white;
+}
+.afisha-result {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 16px 0;
+}
+.afisha-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px 24px;
+}
+.afisha-card {
+  position: relative;
+  min-width: 0;
+}
+.afisha-open {
+  display: block;
+  text-align: left;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  border-radius: 14px;
+}
+.afisha-cover {
+  position: relative;
+  aspect-ratio: 3/4;
+  border-radius: 14px;
+  overflow: hidden;
+  color: white;
+}
+.afisha-cover > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.afisha-open:hover .afisha-cover > img {
+  transform: scale(1.035);
+}
+.type-cover {
+  padding: 52px 28px 28px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.type-cover > strong {
+  font-size: clamp(32px, 3.4vw, 52px);
+  font-weight: 800;
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+  letter-spacing: -0.03em;
+}
+.type-cover > span {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+.type-cover > small {
+  font-size: 11px;
+  opacity: 0.85;
+}
+.age-label {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  background: #fff;
+  color: var(--ink);
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 12px;
+}
+.afisha-save {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  background: #fff;
+  color: var(--ink);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.afisha-save.active {
+  color: var(--accent);
+}
+.afisha-save.active svg {
+  fill: currentColor;
+}
+.afisha-copy {
+  padding: 18px 2px 8px;
+}
+.afisha-kind {
+  font-size: 12px;
+  color: var(--muted);
+}
+.afisha-copy h3 {
+  font-size: 24px;
+  margin: 8px 0 12px;
+}
+.afisha-copy p {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 8px 0;
+}
+.afisha-copy p svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.afisha-more {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.afisha-more svg {
+  transition: transform 0.25s ease-out;
+}
+.afisha-open:hover .afisha-more svg {
+  transform: translate(3px, -3px);
+}
+.afisha-disclaimer {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 24px 0 0;
+  max-width: 80ch;
+}
+.afisha-dialog {
+  width: min(850px, calc(100% - 32px));
+  padding: 0;
+  border: 0;
+  border-radius: 14px;
+  color: var(--ink);
+  background: var(--paper);
+  max-height: 90dvh;
+}
+.afisha-dialog::backdrop {
+  background: rgb(24 27 21 / 0.65);
+}
+.dialog-layout {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}
+.dialog-layout > .afisha-cover {
+  border-radius: 0;
+  min-height: 100%;
+  aspect-ratio: auto;
+}
+.dialog-copy {
+  padding: 48px 32px 32px;
+}
+.dialog-copy h2 {
+  font-size: 34px;
+}
+.dialog-copy p {
+  line-height: 1.7;
+}
+.dialog-close {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: 1;
+  background: white;
+}
+.hero-art .big-ticket {
+  animation: ticket-arrive 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes ticket-arrive {
+  from {
+    transform: translateY(22px) rotate(0deg);
+  }
+  to {
+    transform: translateY(0) rotate(8deg);
+  }
+}
+@media (max-width: 900px) {
+  .afisha-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .type-cover > strong {
+    font-size: 38px;
+  }
+  .hero .big-ticket strong {
+    font-size: 52px;
+  }
+}
+@media (max-width: 600px) {
+  .afisha-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 12px;
+  }
+  .afisha-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .segmented {
+    justify-content: space-between;
+  }
+  .afisha-search {
+    max-width: none;
+  }
+  .afisha-cover {
+    aspect-ratio: 2/3;
+  }
+  .type-cover {
+    padding: 60px 14px 18px;
+  }
+  .type-cover > strong {
+    font-size: 25px;
+  }
+  .type-cover > span {
+    font-size: 10px;
+  }
+  .type-cover > small {
+    font-size: 9px;
+  }
+  .afisha-copy h3 {
+    font-size: 19px;
+  }
+  .afisha-tabs > div {
+    gap: 0;
+  }
+  .afisha-tabs > div button {
+    padding: 8px 10px;
+  }
+  .afisha-tabs .chip {
+    font-size: 12px;
+    padding: 8px;
+  }
+  .afisha-more {
+    font-size: 13px;
+  }
+  .source-date {
+    display: block;
+    margin-top: 8px;
+  }
+  .city-afisha .section-title {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0;
+  }
+  .language-switch {
+    gap: 0;
+    padding: 2px;
+  }
+  .language-switch button {
+    padding: 6px;
+    font-size: 12px;
+  }
+  .dialog-layout {
+    grid-template-columns: 1fr;
+  }
+  .dialog-layout > .afisha-cover {
+    display: none;
+  }
+  .dialog-copy {
+    padding: 52px 24px 28px;
+  }
+  .dialog-copy h2 {
+    font-size: 30px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-art .big-ticket {
+    animation: none;
+  }
+  .afisha-cover > img,
+  .afisha-more svg {
+    transition: none;
+  }
+}
+.type-cover > small {color:#fff;opacity:1;}
+@media(max-width:600px){.hero-art{height:235px;}.hero-art .big-ticket{width:230px;transform:rotate(8deg);margin:20px auto;}.hero-art .big-ticket strong{font-size:38px;line-height:1.05;}}

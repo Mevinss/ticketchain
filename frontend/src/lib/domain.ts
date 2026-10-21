@@ -26,6 +26,8 @@ export type Ticket = {
 };
 export type Metadata = {
   description: string;
+  descriptionKk?: string;
+  venueKk?: string;
   city: string;
   venue: string;
   category: string;
@@ -138,6 +140,8 @@ export function normalizeMetadata(value: unknown): Metadata {
     typeof d[k] === "string" ? (d[k] as string).slice(0, 5000) : "";
   return {
     description: str("description"),
+    descriptionKk: str("descriptionKk"),
+    venueKk: str("venueKk"),
     city: str("city"),
     venue: str("venue"),
     category: str("category"),
@@ -191,6 +195,11 @@ export async function loadMetadata(uri: string): Promise<Metadata> {
   return normalizeMetadata(parsed);
 }
 export function dateLabel(ts: bigint, lang: string) {
+  if (lang === "kk") {
+    const d = new Date(Number(ts) * 1000 + 5 * 3600000);
+    const months = ["қаңтар", "ақпан", "наурыз", "сәуір", "мамыр", "маусым", "шілде", "тамыз", "қыркүйек", "қазан", "қараша", "желтоқсан"];
+    return `${d.getUTCDate()} ${months[d.getUTCMonth()]}, ${String(d.getUTCHours()).padStart(2,"0")}:${String(d.getUTCMinutes()).padStart(2,"0")}`;
+  }
   return new Intl.DateTimeFormat(lang === "kk" ? "kk-KZ" : "ru-RU", {
     timeZone: "Asia/Qyzylorda",
     day: "numeric",

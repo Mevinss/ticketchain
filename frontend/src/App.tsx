@@ -59,13 +59,26 @@ export default function App() {
             <NavLink to="/check-in">{t("Проверка", "Тексеру")}</NavLink>
           </nav>
           <div className="header-actions">
-            <button
-              className="language"
-              onClick={() => setLang(lang === "ru" ? "kk" : "ru")}
-              aria-label={t("Сменить язык на казахский", "Орыс тіліне ауысу")}
+            <div
+              className="language-switch"
+              role="group"
+              aria-label={t("Язык сайта", "Сайт тілі")}
             >
-              {lang === "ru" ? "ҚАЗ" : "РУС"}
-            </button>
+              <button
+                lang="kk"
+                aria-pressed={lang === "kk"}
+                onClick={() => setLang("kk")}
+              >
+                ҚАЗ
+              </button>
+              <button
+                lang="ru"
+                aria-pressed={lang === "ru"}
+                onClick={() => setLang("ru")}
+              >
+                РУС
+              </button>
+            </div>
             <button className="button wallet" onClick={() => void connect()}>
               <Wallet size={17} />
               <span>

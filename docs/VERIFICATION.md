@@ -20,3 +20,7 @@ Source baseline: d644127. Solidity 0.8.24, London EVM, optimizer disabled. Contr
 If a wallet reports only a submission hash after an error, and the original transaction disappears from every accessible RPC before its sender/nonce response is obtained, automatic replacement detection is unavailable. The UI retains the hash and reports pending rather than falsely reporting failure. Verify the transaction using the explorer and the wallet's activity. Ordinary submissions and fetched responses retain replacement identity across account/network changes and retry attempts. This rare hash-only path is not claimed fully automatic.
 
 No mainnet audit or production-readiness claim is made. No Sepolia transaction or event was created by the local checks.
+
+## City listings update — 2026-10-21
+The catalog now includes a dated, manually curated RU/KZ city guide with source links (Ticketon), city/category/search filters, persisted favorites and accessible native-dialog details. It does not imply live inventory or issue real venue tickets. Sepolia purchases remain a separate section. Four covers are original typographic TicketChain covers, not official theatrical artwork. Date labels explicitly support Kazakh month names even without browser ICU support.
+Validation: 14 unit tests, TypeScript/Vite build and browser checks for locale persistence, combined filters, search/reset, favorites, dialog/Escape and mobile overflow. No new contract logic or network transactions.

@@ -87,11 +87,20 @@ export default function EventDetail() {
           </p>
           <p className="detail-line">
             <MapPin size={19} />
-            {[e.metadata.city, e.metadata.venue].filter(Boolean).join(" · ") ||
+            {[
+              e.metadata.city,
+              lang === "kk"
+                ? e.metadata.venueKk || e.metadata.venue
+                : e.metadata.venue,
+            ]
+              .filter(Boolean)
+              .join(" · ") ||
               t("Площадка уточняется", "Өтетін орны нақтылануда")}
           </p>
           <p className="description">
-            {e.metadata.description ||
+            {(lang === "kk"
+              ? e.metadata.descriptionKk || e.metadata.description
+              : e.metadata.description) ||
               t("Описание пока недоступно.", "Сипаттама әзірге қолжетімсіз.")}
           </p>
           {e.metadataError && <Notice code="metadataError" />}

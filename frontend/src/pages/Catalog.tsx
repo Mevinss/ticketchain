@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CityAfisha from "../components/CityAfisha";
 import { Search, ArrowUpRight, Heart, SlidersHorizontal } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useApp } from "../context/AppContext";
@@ -79,17 +80,17 @@ export default function Catalog() {
       <section className="hero">
         <div className="hero-copy">
           <h1>
-            {t("Планы, которые", "Жоспардан")}
+            {t("Этот вечер", "Бұл кеш")}
             <br />
-            <em>{t("стоят встречи.", "кездесуге.")}</em>
+            <em>{t("будет историей.", "есте қалады.")}</em>
           </h1>
           <p>
             {t(
-              "Концерты, кино и новые впечатления. Найдите своё событие — билет останется в вашем кошельке.",
-              "Концерттер, кино және жаңа әсерлер. Өз іс-шараңызды табыңыз — билет әмияныңызда сақталады.",
+              "Большой экран или живая сцена? Выбирайте кино и театр в Астане и Алматы. А технологию билета попробуйте в учебной сети Sepolia.",
+              "Үлкен экран ба, әлде жанды сахна ма? Астана мен Алматыдағы кино мен театрды таңдаңыз. Билет технологиясын Sepolia оқу желісінде сынап көріңіз.",
             )}
           </p>
-          <a className="button" href="#catalog">
+          <a className="button" href="#city-afisha">
             {t("Выбрать событие", "Іс-шара таңдау")}
             <ArrowUpRight size={18} />
           </a>
@@ -98,26 +99,32 @@ export default function Catalog() {
           <div className="big-ticket">
             <span>TICKETCHAIN</span>
             <strong>
-              MAKE
+              {t("ЭТО", "БҰЛ")}
               <br />
-              IT
+              {t("ТВОЙ", "СЕНІҢ")}
               <br />
-              <i>LIVE.</i>
+              <i>{t("ВЕЧЕР.", "КЕШІҢ.")}</i>
             </strong>
             <div className="ticket-perf" />
-            <p>YOUR NEXT GOOD MEMORY</p>
+            <p>{t("ВПЕЧАТЛЕНИЯ ОСТАЮТСЯ", "ӘСЕРЛЕР САҚТАЛАДЫ")}</p>
             <div className="barcode" />
           </div>
-          <span className="hero-caption">MUSIC / CULTURE / COMMUNITY</span>
+          <span className="hero-caption">
+            {t("КИНО / ТЕАТР / ВСТРЕЧИ", "КИНО / ТЕАТР / КЕЗДЕСУ")}
+          </span>
         </div>
       </section>
+      <CityAfisha />
       {!configured && <Setup />}
       <section id="catalog">
         <div className="section-title">
           <div>
-            <h2>{t("Афиша", "Афиша")}</h2>
+            <h2>{t("Билеты в блокчейне", "Блокчейндегі билеттер")}</h2>
             <p>
-              {t("Найдите повод выйти из дома", "Үйден шығуға себеп табыңыз")}
+              {t(
+                "Учебные сеансы Sepolia · не дают входа в настоящий кинотеатр",
+                "Sepolia оқу сеанстары · нақты кинотеатрға кіруге жарамайды",
+              )}
             </p>
           </div>
           {configured && <Refresh />}

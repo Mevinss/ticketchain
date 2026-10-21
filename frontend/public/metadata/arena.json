@@ -1,7 +1,8 @@
 {
-  "description": "Учебное событие TicketChain / TicketChain оқу іс-шарасы. Только тестовый ETH / Тек тестілік ETH.",
+  "description": "Учебное событие TicketChain. Оплата только тестовым ETH. Билет не даёт права входа на реальное мероприятие.",
   "city": "Астана",
   "venue": "Arena",
   "category": "Киберспорт",
-  "posterUrl": "../posters/arena.svg"
+  "posterUrl": "../posters/arena.svg",
+  "descriptionKk": "TicketChain оқу іс-шарасы. Төлем тек тестілік ETH арқылы. Билет нақты іс-шараға кіруге құқық бермейді."
 }

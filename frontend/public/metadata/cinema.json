@@ -1,7 +1,9 @@
 {
-  "description": "Учебное событие TicketChain / TicketChain оқу іс-шарасы. Только тестовый ETH / Тек тестілік ETH.",
+  "description": "Учебное событие TicketChain. Оплата только тестовым ETH. Билет не даёт права входа на реальное мероприятие.",
   "city": "Астана",
-  "venue": "Cinema Club",
+  "venue": "Учебный киноклуб",
   "category": "Кино",
-  "posterUrl": "../posters/cinema.svg"
+  "posterUrl": "../posters/cinema.svg",
+  "descriptionKk": "TicketChain оқу іс-шарасы. Төлем тек тестілік ETH арқылы. Билет нақты іс-шараға кіруге құқық бермейді.",
+  "venueKk": "Оқу киноклубы"
 }
