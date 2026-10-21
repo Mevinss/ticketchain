@@ -1,0 +1,8 @@
+{
+  "description": "Учебное событие TicketChain. Оплата только тестовым ETH. Билет не даёт права входа на реальное мероприятие.",
+  "city": "Алматы",
+  "venue": "Jazz Hall",
+  "category": "Концерт",
+  "posterUrl": "../posters/night.svg",
+  "descriptionKk": "TicketChain оқу іс-шарасы. Төлем тек тестілік ETH арқылы. Билет нақты іс-шараға кіруге құқық бермейді."
+}

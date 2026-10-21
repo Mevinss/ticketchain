@@ -17,13 +17,13 @@ export const deploy = async (contractName: string, args: Array<any>, accountInde
   const metadata = JSON.parse(await remix.call('fileManager', 'getFile', artifactsPath))
   // 'web3Provider' is a remix global variable object
 
-  const signer = (new ethers.providers.Web3Provider(web3Provider)).getSigner(accountIndex)
+  const signer = await (new ethers.BrowserProvider(web3Provider)).getSigner(accountIndex ?? 0)
 
-  const factory = new ethers.ContractFactory(metadata.abi, metadata.data.bytecode.object, signer)
+  const factory = new ethers.ContractFactory(metadata.abi, (metadata.bytecode ?? metadata.data?.bytecode?.object), signer)
 
   const contract = await factory.deploy(...args)
 
   // The contract is NOT deployed yet; we must wait until it is mined
-  await contract.deployed()
-  return contract
+  await contract.waitForDeployment()
+  return contract as unknown as ethers.Contract
 }

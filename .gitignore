@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.env
+.env.local
+.env.*.local
+.superpowers/
+.worktrees/
+.impeccable/review/
+test-results/
+playwright-report/
+.deps/
+.states/
+artifacts/build-info/
+*.log

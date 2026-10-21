@@ -1,0 +1,37 @@
+{
+  "name": "ticketchain",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run && npm run test:contract",
+    "test:unit": "vitest run",
+    "compile": "node scripts/compile-contract.cjs",
+    "test:contract": "node tests/contract/integration.cjs",
+    "local:chain": "node scripts/local-chain.cjs"
+  },
+  "dependencies": {
+    "@fontsource/noto-sans": "5.2.5",
+    "ethers": "6.15.0",
+    "html5-qrcode": "2.3.8",
+    "lucide-react": "0.468.0",
+    "qrcode.react": "4.2.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-router-dom": "7.6.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.51.1",
+    "@types/node": "22.15.30",
+    "@types/react": "19.1.6",
+    "@types/react-dom": "19.1.6",
+    "@vitejs/plugin-react": "4.5.1",
+    "ganache": "7.9.2",
+    "prettier": "3.6.2",
+    "solc": "0.8.24",
+    "typescript": "5.8.3",
+    "vite": "6.3.5",
+    "vitest": "3.2.3"
+  }
+}
